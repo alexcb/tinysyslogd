@@ -17,6 +17,7 @@ logs = []
 
 class SyslogHandler(socketserver.BaseRequestHandler):
     def handle(self):
+        global logs
         client = str(self.client_address)
         msg = str(self.request[0].strip())
         logs.append(f'{client}: {msg}')
